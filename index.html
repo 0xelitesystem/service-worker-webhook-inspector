@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webhook Inspector - local webhook inspector</title>
-<meta property="og:title" content="Webhook Inspector">
-<meta property="og:description" content="webhook-inspector">
-<meta property="og:url" content="https://0xelitesystem.github.io/webhook-inspector/">
+<title>Service Worker Webhook Inspector - local webhook inspector</title>
+<meta property="og:title" content="Service Worker Webhook Inspector">
+<meta property="og:description" content="service-worker-webhook-inspector">
+<meta property="og:url" content="https://0xelitesystem.github.io/service-worker-webhook-inspector/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="description" content="Local webhook receiver. Configure a fetch URL, send POSTs to it from anywhere on this origin, see them captured in real time. Browser-only.">
@@ -77,8 +77,8 @@ footer a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:2
 footer a:hover{color:var(--accent)}
 @media(max-width:540px){.layout{padding:1.25rem 1rem 3rem}h1{font-size:1.375rem}header{grid-template-columns:1fr}}
 </style>
-<link rel="canonical" href="https://0xelitesystem.github.io/webhook-inspector/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Webhook Inspector","applicationCategory":"DeveloperApplication","operatingSystem":"Any (browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://0xelitesystem.github.io/webhook-inspector/","author":{"@type":"Person","name":"0xelitesystem","url":"https://elitesystem.ai"}}</script>
+<link rel="canonical" href="https://0xelitesystem.github.io/service-worker-webhook-inspector/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Service Worker Webhook Inspector","applicationCategory":"DeveloperApplication","operatingSystem":"Any (browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://0xelitesystem.github.io/service-worker-webhook-inspector/","author":{"@type":"Person","name":"0xelitesystem","url":"https://elitesystem.ai"}}</script>
 <style>
 /* elitesystem brand tokens: chrome only, meaning preserved */
 :root, :root[data-theme="dark"] {
@@ -169,7 +169,7 @@ footer a:hover{color:var(--accent)}
 </div>
 </main>
 <footer>
-<p>Source: <a href="https://github.com/0xelitesystem/webhook-inspector" target="_blank" rel="noopener">github.com/0xelitesystem/webhook-inspector</a> &middot; <a href="https://elitesystem.ai" target="_blank" rel="noopener">An elitesystem.ai tool</a> &middot; <a href="https://0xelitesystem.github.io/" target="_blank" rel="noopener">More tools</a></p>
+<p>Source: <a href="https://github.com/0xelitesystem/service-worker-webhook-inspector" target="_blank" rel="noopener">github.com/0xelitesystem/service-worker-webhook-inspector</a> &middot; <a href="https://elitesystem.ai" target="_blank" rel="noopener">An elitesystem.ai tool</a> &middot; <a href="https://0xelitesystem.github.io/" target="_blank" rel="noopener">More tools</a></p>
 <p>Related: <a href="https://github.com/0xelitesystem/csp-header-visual-builder" target="_blank" rel="noopener">csp-header-visual-builder</a> &middot; <a href="https://github.com/0xelitesystem/byok-patterns" target="_blank" rel="noopener">byok-patterns</a></p>
 <p>Limitations: only intercepts <em>same-origin</em> requests. Cannot receive webhooks from external services like Stripe or GitHub. For public internet-facing webhook capture use ngrok or webhook.site. This tool is for local testing of your own browser-side or same-origin code.</p>
 </footer>
@@ -181,7 +181,7 @@ const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">"
 
 let captured=[];
 let registration=null;
-const channel=new BroadcastChannel("webhook-inspector");
+const channel=new BroadcastChannel("service-worker-webhook-inspector");
 
 function setStatus(kind,msg){
   if(!kind){$("reg-status").innerHTML="";return}
@@ -191,7 +191,7 @@ function setStatus(kind,msg){
 // Build the inline service worker script as a Blob URL
 const SW_SOURCE=`
 let capturePath="/inspect";
-const ch=new BroadcastChannel("webhook-inspector");
+const ch=new BroadcastChannel("service-worker-webhook-inspector");
 
 self.addEventListener("install",e=>{self.skipWaiting()});
 self.addEventListener("activate",e=>{e.waitUntil(self.clients.claim())});

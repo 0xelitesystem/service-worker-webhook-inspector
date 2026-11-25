@@ -1,12 +1,12 @@
-# webhook-inspector
+# service-worker-webhook-inspector
 
 Local webhook inspector. Registers a Service Worker that intercepts requests to a configured path on the same origin and displays them in real time. Single HTML file. Browser-only.
 
-**Live demo:** https://0xelitesystem.github.io/webhook-inspector/
+**Live demo:** https://0xelitesystem.github.io/service-worker-webhook-inspector/
 
 ## What this is, and what it isn't
 
-**Is**: a local development tool. You point your own client-side code or a same-origin tool at the configured path (e.g. `https://0xelitesystem.github.io/webhook-inspector/inspect`) and inspect the request in your browser without spinning up a backend.
+**Is**: a local development tool. You point your own client-side code or a same-origin tool at the configured path (e.g. `https://0xelitesystem.github.io/service-worker-webhook-inspector/inspect`) and inspect the request in your browser without spinning up a backend.
 
 **Isn't**: a public-internet webhook receiver. Service Workers only intercept same-origin requests. External services like Stripe, GitHub, or Slack can't send to a Service Worker URL, those need an actual server, and tools like [ngrok](https://ngrok.com) or [webhook.site](https://webhook.site) are the right answer.
 
@@ -14,7 +14,7 @@ So this is for testing your own browser-side fetch code, or for piping local CLI
 
 ## Use
 
-Open `index.html` in a browser, or visit the hosted demo at `https://0xelitesystem.github.io/webhook-inspector/` once Pages is enabled.
+Open `index.html` in a browser, or visit the hosted demo at `https://0xelitesystem.github.io/service-worker-webhook-inspector/` once Pages is enabled.
 
 1. Set a capture path (default: `/inspect`)
 2. Click Activate. The Service Worker registers and starts intercepting.
@@ -32,8 +32,8 @@ Captured requests (method, URL, headers, body) are passed from the Service Worke
 ## Run locally
 
 ```
-git clone https://github.com/0xelitesystem/webhook-inspector
-cd webhook-inspector
+git clone https://github.com/0xelitesystem/service-worker-webhook-inspector
+cd service-worker-webhook-inspector
 python -m http.server 8000
 ```
 
