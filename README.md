@@ -97,6 +97,6 @@ MIT. See [LICENSE](LICENSE).
 
 ## Related
 
-- [csp-builder](https://github.com/0xelitesystem/csp-builder), build Content-Security-Policy headers visually
+- [csp-header-visual-builder](https://github.com/0xelitesystem/csp-header-visual-builder), build Content-Security-Policy headers visually
 - [byok-patterns](https://github.com/0xelitesystem/byok-patterns), three deeply-built BYOK reference implementations
 - [single-file-saas-template](https://github.com/0xelitesystem/single-file-saas-template), ship a SaaS in one HTML file
