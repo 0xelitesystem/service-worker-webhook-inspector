@@ -14,7 +14,7 @@ So this is for testing your own browser-side fetch code, or for piping local CLI
 
 ## Use
 
-Open `index.html` in a browser, or visit the hosted demo at `https://0xelitesystem.github.io/service-worker-webhook-inspector/` once Pages is enabled.
+Open `index.html` in a browser, or visit the hosted demo at `https://0xelitesystem.github.io/service-worker-webhook-inspector/`.
 
 1. Set a capture path (default: `/inspect`)
 2. Click Activate. The Service Worker registers and starts intercepting.
